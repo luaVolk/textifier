@@ -16,7 +16,7 @@ Textifier can print as HTML an image or it can even print it in you browser's co
   $ bower install textifier
   ```
 
-  Or just [download](https://github.com/TemplarVolk/textifier/master/dist/textifier.min.js) the minified script and add it in your HTML:
+  Or just [download](https://raw.githubusercontent.com/TemplarVolk/Textifier/master/dist/textifier.min.js) the minified script and add it in your HTML:
 
   ```html
   <script src="textifier.min.js"></script>
@@ -58,7 +58,7 @@ Every other option will be in the option object.
   | characters | `"01"` | `string`  | The character list to write the image with.
   | background | `#00000000` | `string`   | Color of the background. This color will also be rendered in text.
   | ordered | `false` | `boolean`  | If true the characters will show up in order of the `characters` string
-  | color | `int` | `number` | If the image should be colored, in grayscale or monochrome<br>`0 = colored`<br>`1 = grayscale`<br>`2 = monochrome`<br>Textifier comes with some [constants](#constants) so you don't have to memorize this
+  | color | `0` | `number` | If the image should be colored, in grayscale or monochrome<br>`0 = colored`<br>`1 = grayscale`<br>`2 = monochrome`<br>Textifier comes with some [constants](#constants) so you don't have to memorize this
 
   Since all arguments are optional the options argument can be placed anywhere by omitting any of the other 2.
 
@@ -97,7 +97,7 @@ Every other option will be in the option object.
 ##### **Example**
 
   ```js
-  new Textifier(100, {characters: 'piggy', ordered: true}).draw('images/piggies.png', target);
+  new Textifier(100, {characters: 'oink', ordered: true}).draw('images/piggies.png', target);
   ```
 ##### Output
   ![Rendered image](images/rendered_piggies.png "Rendered image")
@@ -115,7 +115,7 @@ Every other option will be in the option object.
 ##### **Example**
 
   ```js
-  new Textifier(100, {characters: 'piggy', ordered: true}).log('images/piggies.png');
+  new Textifier(100, {characters: 'oink', ordered: true}).log('images/piggies.png');
   ```
 ##### Output
   ![Rendered image](images/console_piggies.png "Rendered image")
