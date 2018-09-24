@@ -1,0 +1,29 @@
+{
+  "name": "textifier",
+  "description": "Convert images to text in your browser",
+  "homepage": "https://github.com/TemplarVolk/textifier",
+  "authors": [
+    "Volk <templar.volk@yandex.com>"
+  ],
+  "license": "MIT",
+  "main": "./dist/textifier.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TemplarVolk/textifier.git"
+  },
+  "keywords": [
+    "textifier",
+    "textify",
+    "javascript",
+    "text",
+    "transforms",
+    "html",
+    "canvas"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "examples",
+    "images"
+  ]
+}

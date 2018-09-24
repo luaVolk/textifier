@@ -1,0 +1,36 @@
+{
+  "name": "textifier",
+  "version": "1.0.0",
+  "description": "Convert images to text in your browser",
+  "homepage": "https://github.com/TemplarVolk/textifier",
+  "author": "Volk <templar.volk@yandex.com>",
+  "license": "MIT",
+  "browser": "./dist/textifier.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TemplarVolk/textifier.git"
+  },
+  "keywords": [
+    "textifier",
+    "textify",
+    "javascript",
+    "text",
+    "transforms",
+    "html",
+    "canvas"
+  ],
+  "files": [
+    "textifier.js",
+    "./dist/textifier.min.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/TemplarVolk/textifier/issues"
+  },
+  "scripts": {
+    "build": "uglifyjs textifier.js -o dist/textifier.min.js --compress --mangle",
+    "examples": "node ./examples/server.js"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.4.9"
+  }
+}

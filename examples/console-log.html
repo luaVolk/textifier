@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>console.log textified image</title>
+  </head>
+  <body>
+    <a href="/">⇐ Back to example list</a>
+    <div><b>Original image</b></div>
+    <img src="../images/piggies.png" id="piggies">
+
+    <form>
+      <div>
+        <div><b>Dimensions are measured in characters</b></div>
+        <label for="maxHeight">Max height:</label>
+        <input type="number" id="maxHeight" placeholder="Infinity" min="1">
+      </div>
+
+      <div>
+        <label for="maxWidth">Max width:</label>
+        <input type="number" id="maxWidth" placeholder="Infinity" min="1">
+      </div>
+      <br>
+      <div>
+        <label for="characters">Characters:</label>
+        <input type="text" id="characters" placeholder="01">
+      </div>
+
+      <div>
+        <label for="ordered">Ordered:</label>
+        <input type="checkbox" id="ordered">
+      </div>
+      <br>
+      <div>
+        <label for="background">Background:</label>
+        <input type="text" id="background" placeholder="#00000000 (transparent)">
+      </div>
+      <br>
+      <div>
+        <label for="color">Color:</label>
+        <select type="select" id="color">
+          <option value="0">Colored</option>
+          <option value="1">Grayscale</option>
+          <option value="2">Monochrome</option>
+        </select>
+      </div>
+
+      <br>
+      <input type="submit" value="Textify">
+    </form>
+    <br>
+
+    <div id="target"></div>
+
+
+    <script src="../dist/textifier.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      var textifier = new Textifier();
+      var target = document.getElementById('target');
+
+      document.querySelector('form').onsubmit = function(e) {
+        e.preventDefault();
+
+        target.innerText = 'Processing...';
+
+        textifier.maxHeight = parseInt(document.getElementById('maxHeight').value);
+        textifier.maxWidth = parseInt(document.getElementById('maxWidth').value);
+
+        textifier.options.color = parseInt(document.getElementById('color').value);
+
+        textifier.options.characters = document.getElementById('characters').value || textifier.options.characters; // Dont change if empty
+        textifier.options.background = document.getElementById('background').value || textifier.options.background; // Dont change if empty
+
+        textifier.options.ordered = document.getElementById('ordered').checked ? true : false;
+
+        textifier.log(document.getElementById('piggies').src).then(function (log) {
+          target.innerText = 'Check your dev console (Ctrl + Shift + I)';
+        });
+      }
+    </script>
+  </body>
+</html>
