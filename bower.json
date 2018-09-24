@@ -6,7 +6,7 @@
     "Volk <templar.volk@yandex.com>"
   ],
   "license": "MIT",
-  "main": "./dist/textifier.min.js",
+  "main": "textifier.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/TemplarVolk/textifier.git"
