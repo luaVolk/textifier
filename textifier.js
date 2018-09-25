@@ -263,7 +263,7 @@
   })();
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = Validator;
+    module.exports = Textifier;
   } else if (typeof define === 'function' && define.amd) {
     define([], function() {
       return Textifier;
