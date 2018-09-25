@@ -2,9 +2,9 @@
 
 >*Textifier is a javascript library that lets you convert images to any text of your choosing, in your browser*
 
-| Colored | Grayscale | Monochrome | Console |
-| --- | --- | --- | --- |
-| ![Colored](images/rendered_piggies.png "Colored") | ![Grayscale](images/grayscale_piggies.png "Grayscale") | ![Monochrome](images/monochrome_piggies.png "Monochrome") | ![Console](images/console_piggies.png "Console") |
+| Original | Colored | Grayscale | Monochrome | Console |
+| --- | --- | --- | --- | --- |
+| ![Original](images/piggies.png "Colored") | ![Colored](images/rendered_piggies.png "Colored") | ![Grayscale](images/grayscale_piggies.png "Grayscale") | ![Monochrome](images/monochrome_piggies.png "Monochrome") | ![Console](images/console_piggies.png "Console") |
 
 Textifier can print as HTML an image or it can even print it in you browser's console.
 
@@ -39,12 +39,12 @@ Textifier can print as HTML an image or it can even print it in you browser's co
   Measurements in pixels will be added somewhere in the future.
 
 ### maxWidth
-  `type: int`
+  `type: number`
 
-  maxWidth is an should be a positive number. This sets maximum width of the rendered image. If it is not set or set with something other than a positive number, it will take as much space as it can.
+  maxWidth should be a positive number. This sets maximum width of the rendered image. If it is not set or set with something other than a positive number, it will take as much space as it can.
 
 ### maxHeight
-  `type: int`
+  `type: number`
 
   Same as maxWidth except that if it is not set the maximum height will be the the same as the height of the original image but in characters instead of pixels.
 
