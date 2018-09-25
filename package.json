@@ -30,6 +30,6 @@
     "examples": "node ./examples/server.js"
   },
   "devDependencies": {
-    "uglify-js": "^3.4.9"
+    "uglify-es": "^3.3.9"
   }
 }
