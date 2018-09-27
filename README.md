@@ -35,16 +35,17 @@ Textifier can print as HTML an image or it can even print it in you browser's co
 
   Textifier needs CORS access to the source images.
 
-  Dimensions are measured in characters and not pixels. So setting something like 500 will be something huge. Also a character is not a square, meaning that the height and width are not the same proportions. The default `monospace` font has a height/width ratio of around 1.8. Which means that a number in maxHeight means almost twice as much as the one in maxWidth.
-  Measurements in pixels will be added somewhere in the future.
-
 ### maxWidth
-  `type: number`
+  `type: number | string`
 
-  maxWidth should be a positive number. This sets maximum width of the rendered image. If it is not set or set with something other than a positive number, it will take as much space as it can.
+  maxWidth should be a positive number. This sets maximum width of the rendered image. If it is not set or set with an invalid value, it will take as much space as it can.
+
+  Valid values are either a number or a valid CSS size value (e.g `200px`).
+
+  Unless specified units will be measured in characters.
 
 ### maxHeight
-  `type: number`
+  `type: number | string`
 
   Same as maxWidth except that if it is not set the maximum height will be the the same as the height of the original image but in characters instead of pixels.
 
