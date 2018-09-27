@@ -11,11 +11,9 @@
   var Textifier = (function() {
 
     function Textifier(maxWidth, maxHeight, options) {
-      // WARNING: maxWidth and maxHeight are measured in characters, not pixels
-      // If no maximum dimensions are set, it will have the same height as the original image but in characters instead of pixels
-      this.maxWidth = maxWidth && maxWidth >= 0 ? maxWidth : Infinity;
-      this.maxHeight = maxHeight && maxHeight >= 0 ? maxHeight : Infinity;
-
+      // WARNING: maxWidth and maxHeight are measured in characters, unless specified
+      this.maxWidth = maxWidth || Infinity;
+      this.maxHeight = maxHeight || Infinity;
 
       if (typeof maxWidth === 'object') {
         this.options = maxWidth;
@@ -57,7 +55,7 @@
 
         img.onload = function() {
 
-          var [width, height] = scaleDimensions(img.width, img.height, this.maxWidth, this.maxHeight, this.font.ratio);
+          var [width, height] = scaleDimensions(img.width, img.height, this.maxWidth, this.maxHeight, this.font);
 
           this.canvas.width = width;
           this.canvas.height = height;
@@ -237,21 +235,41 @@
       var { width, height } = pre.getBoundingClientRect();
       document.body.removeChild(pre);
 
-      return { ratio: height / width, height, width};
+      return {ratio: height / width, width, height};
     }
 
-    function scaleDimensions(width, height, maxWidth, maxHeight, ratio) {
+    function measureUnits(number, dir, font) {
+      if (!number || isNaN(number)) {
+        var div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style[dir] = number;
 
-      var newWidth = Math.floor(ratio * width);
+        document.body.appendChild(div);
+        var { width, height } = div.getBoundingClientRect();
+        document.body.removeChild(div);
+
+        return {width: Math.floor(width / font.width) || Infinity,
+                height: Math.floor(height / font.height) || Infinity};
+      }
+
+      return {width: number, height: number};
+    }
+
+    function scaleDimensions(width, height, maxWidth, maxHeight, font) {
+
+      maxWidth = measureUnits(maxWidth, 'width', font).width;
+      maxHeight = measureUnits(maxHeight, 'height', font).height;
+
+      var newWidth = Math.floor(font.ratio * width);
       var newHeight = height;
 
       if (newWidth > maxWidth) {
-        newHeight = Math.floor(newHeight * maxWidth / newWidth);
+        newHeight = Math.ceil(newHeight * maxWidth / newWidth);
         newWidth = maxWidth;
       }
 
       if (newHeight > maxHeight) {
-        newWidth = Math.floor(newWidth * maxHeight / newHeight);
+        newWidth = Math.ceil(newWidth * maxHeight / newHeight);
         newHeight = maxHeight;
       }
 
