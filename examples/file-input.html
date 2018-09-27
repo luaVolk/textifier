@@ -13,12 +13,12 @@
       <div>
         <div><b>Dimensions are measured in characters</b></div>
         <label for="maxHeight">Max height:</label>
-        <input type="number" id="maxHeight" placeholder="Infinity" min="1">
+        <input type="text" id="maxHeight" placeholder="Infinity">
       </div>
 
       <div>
         <label for="maxWidth">Max width:</label>
-        <input type="number" id="maxWidth" placeholder="Infinity" min="1">
+        <input type="text" id="maxWidth" placeholder="Infinity">
       </div>
       <br>
       <div>
@@ -53,7 +53,7 @@
     <div id="target"></div>
 
 
-    <script src="../dist/textifier.min.js" charset="utf-8"></script>
+    <script src="../textifier.js" charset="utf-8"></script>
     <script type="text/javascript">
       var textifier = new Textifier();
       var target = document.getElementById('target');
@@ -77,8 +77,11 @@
         if (file) {
           target.innerText = 'Processing...';
 
-          textifier.maxHeight = parseInt(document.getElementById('maxHeight').value);
-          textifier.maxWidth = parseInt(document.getElementById('maxWidth').value);
+          var maxHeight = document.getElementById('maxHeight').value
+          var maxWidth = document.getElementById('maxWidth').value
+
+          textifier.maxHeight = isNaN(maxHeight) ? maxHeight : parseInt(maxHeight);
+          textifier.maxWidth = isNaN(maxWidth) ? maxWidth : parseInt(maxWidth);
 
           textifier.options.color = parseInt(document.getElementById('color').value);
 
