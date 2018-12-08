@@ -26,7 +26,7 @@ Textifier can print as HTML an image or it can even print it in you browser's co
 
   Here is the mandatory one-liner to show how simple it can be.
   ```js
-  new Textifier().draw(target, 'images/piggies.png');
+  new Textifier().draw('images/piggies.png', target);
   ```
 
   Of course you are probably going to want use some options. Textifier takes 3 optional arguments: maxWidth, maxHeight and options.
