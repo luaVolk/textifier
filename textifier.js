@@ -172,7 +172,7 @@
           }
         }
 
-        if (type == Textifier.CONSOLE) { //If console
+        if (type == Textifier.CONSOLE) {
           characters.unshift('\n' + log);
         }
 
