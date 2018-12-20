@@ -57,7 +57,7 @@ Every other option will be in the option object.
   | Names | Defaults | Types | Info
   | --- | --- | --- | ---
   | characters | `"01"` | `string`  | The character list to write the image with.
-  | background | `#00000000` | `string`   | Color of the background. This color will also be rendered in text.
+  | background | `"#00000000"` | `string`   | Color of the background. This color will also be rendered in text.
   | ordered | `false` | `boolean`  | If true the characters will show up in order of the `characters` string
   | color | `0` | `number` | If the image should be colored, in grayscale or monochrome<br>`0 = colored`<br>`1 = grayscale`<br>`2 = monochrome`<br>Textifier comes with some [constants](#constants) so you don't have to memorize this
 
