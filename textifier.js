@@ -1,7 +1,7 @@
 /**
  * https://github.com/TemplarVolk/textifier
  * Convert images to text in your browser
- * @version v1.0.0
+ * @version v1.2.0
  * @author Templar Volk
  * @copyright ©2018 Templar Volk
  * @license MIT
