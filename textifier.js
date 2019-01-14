@@ -3,7 +3,7 @@
  * Convert images to text in your browser
  * @version v1.2.0
  * @author Templar Volk
- * @copyright ©2018 Templar Volk
+ * @copyright ©2019 Templar Volk
  * @license MIT
 **/
 
