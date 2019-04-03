@@ -228,7 +228,7 @@
 
     function getLetterDimensions() {
       var pre = document.createElement('pre');
-      pre.style.display = 'inline';
+      pre.style.position = 'absolute';
       pre.textContent = ' ';
 
       document.body.appendChild(pre);
